@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ui_wallet/util/cards.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _controller = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,38 +57,48 @@ class _HomePageState extends State<HomePage> {
               height: 200,
               child: PageView(
                 scrollDirection: Axis.horizontal,
+                controller: _controller,
                 children: [
                   Cards(
                     balance: 1543.80,
                     cardNumber: 12345678,
                     expiryMonth: 08,
                     expiryYear: 28,
-                    color: Colors.blue,
+                    color: Colors.blue[300],
                   ),
                   Cards(
                     balance: 198.80,
                     cardNumber: 54785429,
                     expiryMonth: 07,
                     expiryYear: 26,
-                    color: Colors.purple,
+                    color: Colors.purple[300],
                   ),
                   Cards(
                     balance: 87543.80,
                     cardNumber: 42316354,
                     expiryMonth: 02,
                     expiryYear: 25,
-                    color: Colors.orange,
+                    color: Colors.orange[300],
                   ),
                   Cards(
                     balance: 1543.80,
                     cardNumber: 78564327,
                     expiryMonth: 09,
                     expiryYear: 27,
-                    color: Colors.pink,
+                    color: Colors.pink[300],
                   ),
                 ],
               ),
             ),
+
+            SizedBox(height: 25),
+
+            SmoothPageIndicator(
+              controller: _controller,
+              count: 4,
+              effect: JumpingDotEffect(
+                  activeDotColor: Color.fromARGB(255, 99, 25, 210)),
+            )
 
             // 3 buttons -> send + pay + bills
 
