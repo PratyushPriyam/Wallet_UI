@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ui_wallet/util/cards.dart';
+import 'package:ui_wallet/util/custom_buttons.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -98,11 +99,25 @@ class _HomePageState extends State<HomePage> {
               count: 4,
               effect: JumpingDotEffect(
                   activeDotColor: Color.fromARGB(255, 99, 25, 210)),
-            )
+            ),
 
             // 3 buttons -> send + pay + bills
-
+            SizedBox(height: 20),
             //colums -> stats +transactions
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                customButtons(
+                    imageRelativeSource: "lib/icons/transaction.png",
+                    buttonText: "Text"),
+                customButtons(
+                    imageRelativeSource: "lib/icons/wallet.png",
+                    buttonText: "Text"),
+                customButtons(
+                    imageRelativeSource: "lib/icons/bill.png",
+                    buttonText: "Text"),
+              ],
+            )
           ],
         ),
       ),
