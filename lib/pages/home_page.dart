@@ -5,6 +5,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:ui_wallet/util/cards.dart';
 import 'package:ui_wallet/util/custom_buttons.dart';
 
+import '../util/horizantal_cards.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -21,7 +23,7 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             // App Bar
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -51,11 +53,11 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            SizedBox(height: 25),
+            SizedBox(height: 15),
 
             // Cards
             Container(
-              height: 200,
+              height: 160,
               child: PageView(
                 scrollDirection: Axis.horizontal,
                 controller: _controller,
@@ -103,19 +105,61 @@ class _HomePageState extends State<HomePage> {
 
             // 3 buttons -> send + pay + bills
             SizedBox(height: 20),
-            //colums -> stats +transactions
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 customButtons(
-                    imageRelativeSource: "lib/icons/transaction.png",
+                    imageRelativeSource: "lib/icons/wallet.png",
+                    idName: "SEND",
                     buttonText: "Text"),
                 customButtons(
-                    imageRelativeSource: "lib/icons/wallet.png",
+                    imageRelativeSource: "lib/icons/credit-card.png",
+                    idName: "PAY",
                     buttonText: "Text"),
                 customButtons(
                     imageRelativeSource: "lib/icons/bill.png",
+                    idName: "BILLS",
                     buttonText: "Text"),
+              ],
+            ),
+
+            //colums -> stats +transactions
+            SizedBox(
+              height: 15,
+            ),
+
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 25),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Exercises",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+                  ),
+                  Icon(Icons.more_horiz)
+                ],
+              ),
+            ),
+
+            SizedBox(
+              height: 10,
+            ),
+
+            Column(
+              children: [
+                horizantal_cards(
+                    imageAssetLoc: "lib/icons/analytics.png",
+                    title: "Statistics",
+                    subTitle: "Payment and income"),
+                horizantal_cards(
+                    imageAssetLoc: "lib/icons/transaction.png",
+                    title: "Transactions",
+                    subTitle: "Transaction history"),
               ],
             )
           ],

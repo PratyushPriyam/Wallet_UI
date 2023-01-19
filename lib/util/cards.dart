@@ -31,7 +31,7 @@ class Cards extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 10),
+            SizedBox(height: 4),
             Text(
               "Balance",
               style: TextStyle(color: Colors.white),
