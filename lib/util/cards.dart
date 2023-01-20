@@ -32,9 +32,15 @@ class Cards extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 4),
-            Text(
-              "Balance",
-              style: TextStyle(color: Colors.white),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Balance",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Image.asset("lib/icons/rupay.png")
+              ],
             ),
             SizedBox(height: 10),
             Text(
